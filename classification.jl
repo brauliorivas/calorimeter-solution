@@ -1,10 +1,11 @@
+# Dependencies
 using Flux
 using CSV
 using Random
 using Statistics
 using DataFrames
 
-# Load and preprocess the data
+# Load data from csv and encode labels
 function load_data(filename)
     # Load data from CSV file
     data = CSV.File(filename, header=true) |> DataFrame
@@ -17,12 +18,14 @@ function load_data(filename)
     return features, labels
 end
 
+# Normalize features for better training by subtracting mean and dividing by standard deviation (common practice)
 function normalize(features)
     μ = mean(features, dims=2)
     σ = std(features, dims=2)
     return (features .- μ) ./ σ
 end
 
+# Split data into training and test sets using a given ratio
 function split_data(features, labels, train_ratio)
     num_samples = size(features, 2)
     indices = shuffle(1:num_samples)
@@ -37,11 +40,11 @@ function split_data(features, labels, train_ratio)
     return train_features, train_labels, test_features, test_labels
 end
 
-features, labels = load_data("dataset.csv")
-features = normalize(features)
-features = permutedims(features, [2, 1])
-train_features, train_labels, test_features, test_labels = split_data(features, labels, 0.7)
-train_labels = reshape(train_labels, 1, length(train_labels))
+features, labels = load_data("dataset.csv") # Load data
+features = normalize(features) # Normalize features
+features = permutedims(features, [2, 1]) # Adjust dimensions for features
+train_features, train_labels, test_features, test_labels = split_data(features, labels, 0.7) # Split data using a 70-30 ratio
+train_labels = reshape(train_labels, 1, length(train_labels)) # Adjust dimensions for labels
 
 
 # Define the neural network model
@@ -55,11 +58,11 @@ model = Chain(
 # Define loss function (binary cross-entropy loss)
 loss(x, y) = Flux.binarycrossentropy(model(x), y)
 
-# Define optimizer (e.g., Adam)
+# Define optimizer (ADAM)
 optimizer = Flux.Optimise.ADAM()
 
 # Training loop
-epochs = 100
+epochs = 100 
 for epoch in 1:epochs
     Flux.train!(loss, Flux.params(model), [(train_features, train_labels)], optimizer)
 end
