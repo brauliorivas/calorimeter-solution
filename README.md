@@ -1,5 +1,51 @@
 # Neural Network for Binary Classification
 
+### To run this code
+1. Clone the repository:
+   ```sh
+   git clone git@github.com:brauliorivas/calorimeter-solution.git
+   ```
+
+2. Navigate to the cloned directory:
+   ```sh
+   cd calorimeter-solution
+   ```
+
+3. Unzip the dataset:
+   ```sh
+   unzip dataset.zip
+   ```
+
+4. Open Julia's REPL (Read-Eval-Print Loop):
+   ```sh
+   julia
+   ```
+
+5. Once in the Julia REPL, activate the project environment:
+   ```julia
+   ]
+   ```
+
+6. Once in the package mode, activate the project environment:
+   ```julia
+   activate .
+   ```
+
+7. Install the required packages:
+   ```julia
+   instantiate
+   ```
+
+8. Exit the package mode and return to the Julia REPL:
+   ```julia
+   ctrl + c
+   ```
+
+9. Run the script:
+   ```sh
+   include("classification.jl")
+   ```
+
 ## Neural Network Architecture
 
 The neural network architecture is designed to classify input data into one of two classes: "s" (signal) or "b" (background). It consists of three dense layers:
