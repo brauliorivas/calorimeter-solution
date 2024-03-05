@@ -53,24 +53,22 @@ This code aims to solve the task for GSoC given by [CERN](https://github.com/gra
 The neural network architecture is designed to classify input data into one of two classes: "s" (signal) or "b" (background). It consists of three dense layers:
 
 1. **Input Layer:** 
-   - Number of neurons: 3
+   - Number of neurons: 3 input - 3 output
+   - Activation function: ReLU (Rectified Linear Unit) (common activation function used in various neural networks)
    - Purpose: This layer accepts input data with three features representing the x, y, and z dimensions of the input samples.
 
 2. **Hidden Layers:** 
    The simpler, the better. After trying more neurons, the accuracy was not so good. But later, with lower neurons and more layers, it improved. 
    - First Hidden Layer:
-     - Number of neurons: 3
-     - Activation function: ReLU (Rectified Linear Unit) (common activation function used in various neural networks)
+     - Number of neurons: 3 input - 3 output
+     - Activation function: ReLU 
    - Second Hidden Layer:
-     - Number of neurons: 3
-     - Activation function: ReLU
-   - Third Hidden Layer:
-     - Number of neurons: 3
+     - Number of neurons: 3 input - 3 output
      - Activation function: ReLU
    - Purpose: These layers perform nonlinear transformations on the input data, extracting relevant features for classification.
 
 3. **Output Layer:**
-   - Number of neurons: 1
+   - Number of neurons: 3 input - 1 output
    - Activation function: Sigmoid
    - Purpose: This layer produces the final output, which represents the probability that the input sample belongs to class "s" (signal) or "b" (background). A sigmoid activation function is used to ensure the output is between 0 and 1, allowing for interpretation as a probability, where 1 equals "s" and 0 equals "b". 
 
