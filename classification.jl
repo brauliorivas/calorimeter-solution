@@ -48,8 +48,8 @@ train_labels = reshape(train_labels, 1, length(train_labels)) # Adjust dimension
 
 
 # Define the neural network model
-# after some testing, the simpler the model, the better the accuracy
-# 4 layers with 3 neurons each and ReLU activation function performed the best
+# After some testing, the simpler the model, the better the accuracy
+# 4 layers and ReLU activation function with a few neurons performed the best
 model = Chain(
     Dense(3, 3, relu), 
     Dense(3, 3, relu), 
