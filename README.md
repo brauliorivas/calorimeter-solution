@@ -18,7 +18,7 @@ This code aims to solve the task for GSoC given by [CERN](https://github.com/gra
    unzip dataset.zip
    ```
 
-4. Open Julia's REPL (Read-Eval-Print Loop):
+4. Open Julia's REPL (assuming you already have julia installed):
    ```sh
    julia
    ```
