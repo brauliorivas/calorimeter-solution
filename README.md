@@ -57,11 +57,15 @@ The neural network architecture is designed to classify input data into one of t
    - Purpose: This layer accepts input data with three features representing the x, y, and z dimensions of the input samples.
 
 2. **Hidden Layers:** 
+   The simpler, the better. After trying more neurons, the accuracy was not so good. But later, with lower neurons and more layers, it improved. 
    - First Hidden Layer:
-     - Number of neurons: 64
+     - Number of neurons: 3
      - Activation function: ReLU (Rectified Linear Unit) (common activation function used in various neural networks)
    - Second Hidden Layer:
-     - Number of neurons: 32
+     - Number of neurons: 3
+     - Activation function: ReLU
+   - Third Hidden Layer:
+     - Number of neurons: 3
      - Activation function: ReLU
    - Purpose: These layers perform nonlinear transformations on the input data, extracting relevant features for classification.
 
