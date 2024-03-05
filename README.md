@@ -1,5 +1,7 @@
 # Neural Network for Binary Classification
 
+This code aims to solve the task for GSoC given by [CERN](https://github.com/graeme-a-stewart/hsf-julia-ml-gsoc). The basic task is to train a machine learning model in Julia to classify a ternary of x, y, and z values into signal or background labels. 
+
 ### To run this code
 1. Clone the repository:
    ```sh
@@ -57,7 +59,7 @@ The neural network architecture is designed to classify input data into one of t
 2. **Hidden Layers:** 
    - First Hidden Layer:
      - Number of neurons: 64
-     - Activation function: ReLU (Rectified Linear Unit)
+     - Activation function: ReLU (Rectified Linear Unit) (common activation function used in various neural networks)
    - Second Hidden Layer:
      - Number of neurons: 32
      - Activation function: ReLU
@@ -77,6 +79,9 @@ During training, the model adjusts its parameters (weights and biases) iterative
 ## Choice of Loss Function
 
 The binary cross-entropy loss function, also known as log loss, is employed for this task. This loss function is commonly used in binary classification problems, where the goal is to predict one of two mutually exclusive classes.
+
+## Accuracy
+The accuracy for this model is ~ 0.227
 
 ## Dependencies
 
